@@ -1,0 +1,15 @@
+.page-header
+  %h1
+    Inventions
+    .pull-right
+      = link_to t('new', model_name: 'Invention').html_safe, new_invention_path, :class => 'btn btn-primary'
+
+
+%table#inventions.table.cards.dataTable{:data => {:source => inventions_url(:format => 'json')}}
+  %thead{style: 'display: none;'}
+    %tr
+      %th Photo
+      %th Name
+      %th User
+      %th Bits
+  %tbody

@@ -1,0 +1,28 @@
+= simple_form_for(invention, multipart: true) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :description
+    = f.input :user_name
+    = f.input :email
+    = f.input :bits, collection: APP[:bitlist], input_html: { multiple: true, class: 'chosen-select' }
+    = f.input :materials, input_html: { class: 'tokenize' }
+
+  .table-responsive
+    %table#invention_photos.table.table-condensed
+      %thead
+        %tr
+          %th Photo
+          %th Name
+          %th Description
+          %th
+      %tbody#invention_photos_data
+        = f.simple_fields_for :photos, wrapper: false do |doc|
+          = render 'photo_fields', :f => doc
+      %br
+      .pull-right
+        = link_to_add_association t('add_photo').html_safe, f, :photos, :"data-association-insertion-node" => "tbody#invention_photos_data", :"data-association-insertion-method" => "append", class: 'btn btn-success'
+
+  .form-actions
+    = f.button :submit

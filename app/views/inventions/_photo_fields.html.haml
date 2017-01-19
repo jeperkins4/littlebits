@@ -1,0 +1,7 @@
+%tr.nested-fields
+  %td
+    = f.hidden_field :id
+    = f.input_field :media, as: :file
+  %td= f.input_field :name
+  %td= f.input_field :description
+  %td= link_to_remove_association(t("destroy").html_safe, f, :class => 'btn btn-xs btn-danger')

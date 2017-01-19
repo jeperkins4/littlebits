@@ -1,0 +1,55 @@
+# Add account credentials and API keys here.
+# See http://railsapps.github.io/rails-environment-variables.html
+# This file should be listed in .gitignore to keep your settings secret!
+# Each entry sets a local environment variable.
+# For example, setting:
+# GMAIL_USERNAME: Your_Gmail_Username
+# makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
+
+# Add configuration values here, as shown below.
+
+defaults: &defaults
+  bitlist:
+    - bargraph
+    - bend-sensor
+    - branch
+    - bright-led
+    - button
+    - buzzer
+    - coin-battery
+    - dc-motor
+    - dimmer
+    - doubleand
+    - doubleor
+    - fan
+    - fork
+    - inverter
+    - led
+    - light-sensor
+    - light-trigger
+    - light-wire
+    - long-led
+    - motion-trigger
+    - power
+    - pressure-sensor
+    - pulse
+    - rgb-led
+    - roller-switch
+    - servo-motor
+    - slide-dimmer
+    - slide-switch
+    - sound-trigger
+    - temperature-sensor
+    - timeout
+    - toggle-switch
+    - usb-power
+    - uv-led
+    - vibration-motor
+    - wire
+
+development:
+  <<: *defaults
+test:
+  <<: *defaults
+production:
+  <<: *defaults

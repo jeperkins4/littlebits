@@ -1,0 +1,25 @@
+.panel.panel-default
+  .panel-heading
+    .panel-title
+      Invention
+      .pull-right
+        = link_to raw(t('edit')), [:edit, invention], :class => 'btn btn-primary'
+        = link_to raw(t('back',to: "Inventions")), inventions_path, :class => 'btn btn-default'
+  .panel-body
+    .row
+      .col-md-3
+        = poster(invention)
+    %dl
+      %dt Title:
+      %dd= invention.title
+      %dt Description:
+      %dd= invention.description
+      %dt User name:
+      %dd= invention.user_name
+      %dt Email:
+      %dd= invention.email
+      %dt Bits:
+      %dd= bits(invention)
+      %dt Materials:
+      %dd= materials(invention)
+

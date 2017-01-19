@@ -51,3 +51,49 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'bootstrap-sass'
+gem 'bootstrap3_autocomplete_input'
+gem 'cancancan'
+gem 'carrierwave'
+gem 'chosen-rails'
+gem 'cocoon'
+gem 'decent_exposure'
+gem 'devise'
+gem 'fog'
+gem 'font-awesome-rails'
+gem 'haml-rails'
+gem 'high_voltage'
+gem 'jquery-datatables-rails'
+gem 'kaminari'
+gem 'mini_magick'
+gem 'pg'
+gem 'select2-rails'
+gem 'simple_form'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'foreman'
+  gem 'html2haml'
+  gem 'hub', :require=>nil
+  gem 'rails_apps_pages'
+  gem 'rails_apps_testing'
+  gem 'rails_layout'
+  gem 'spring-commands-rspec'
+end
+
+group :development, :test do
+  gem 'fabrication'
+  gem 'faker'
+  gem 'rspec-rails'
+  gem 'rubocop'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'selenium-webdriver'
+end
+

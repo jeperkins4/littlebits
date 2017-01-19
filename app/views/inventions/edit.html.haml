@@ -1,0 +1,11 @@
+.panel.panel-default
+  .panel-heading
+    .panel-title
+      Edit Invention
+      .pull-right
+        = link_to 'Show', invention, class: 'btn btn-default'
+        = link_to t('back',to: "Inventions").html_safe, inventions_path, class: 'btn btn-default'
+  .panel-body
+    = render 'form'
+
+

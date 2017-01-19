@@ -1,0 +1,10 @@
+.panel.panel-default
+  .panel-heading
+    .panel-title
+      User
+      .pull-right
+        = link_to raw(t('edit')), [:edit, user], :class => 'btn btn-primary'
+        = link_to raw(t('back',to: "Users")), users_path, :class => 'btn btn-default'
+  .panel-body
+    %dl
+    
