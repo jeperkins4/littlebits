@@ -56,6 +56,7 @@ gem 'bootstrap-sass'
 gem 'bootstrap3_autocomplete_input'
 gem 'cancancan'
 gem 'carrierwave'
+gem 'carrierwave-video'
 gem 'chosen-rails'
 gem 'cocoon'
 gem 'decent_exposure'
@@ -91,6 +92,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'brakeman'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'

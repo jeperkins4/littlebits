@@ -8,6 +8,7 @@
     = f.input :email
     = f.input :bits, collection: APP[:bitlist], input_html: { multiple: true, class: 'chosen-select' }
     = f.input :materials, input_html: { class: 'tokenize' }
+    = f.input :video, as: :file
 
   .table-responsive
     %table#invention_photos.table.table-condensed

@@ -7,4 +7,9 @@ class Invention < ApplicationRecord
 
   serialize :bits, JSON
   serialize :materials, JSON
+
+  mount_uploader :video, VideoUploader
+
+  def set_success(format, opts)
+  end
 end

@@ -1,5 +1,11 @@
 $brandDefault   : #ecf0f1;
-/* Black */
+/* Clear */
+$bgDefault      : #ffffff;
+$bgHighlight    : #5f027e;
+$brandDefault   : #eeeeee;
+$colDefault     : #5f027e;
+$colHover       : #8e44ad; /*/
+/* Black * /
 $bgDefault      : #2f013e;
 $bgHighlight    : #424242;
 $brandDefault   : #ecf0f1;
@@ -44,8 +50,9 @@ $colHover       : #ffe6d1; /*/
 /* --- Style --- */
 .navbar-inverse {
     background-color: $bgDefault;
-    border-color: $bgHighlight;
+    border-color: $brandDefault;
     .navbar-brand {
+        height: 70px;
         color: $brandDefault;
         &:hover, &:focus {
             color: $colHover; }}
