@@ -17,13 +17,3 @@ test:
   username: jperkins
   password:
   template: template0
-
-production:
-  adapter:  postgresql
-  host:     localhost
-  encoding: unicode
-  database: littlebits_production
-  pool:     5
-  username: jperkins
-  password:
-  template: template0
