@@ -1,13 +1,50 @@
+require 'simplecov'
+require 'rubygems'
+
+SimpleCov.start 'rails' do
+  add_filter '/test/'
+  add_filter '/config/'
+
+  add_group 'Controllers', 'app/controllers'
+  add_group 'Models', 'app/models'
+  add_group 'Concerns', 'app/concerns'
+  add_group 'Datatables', 'app/datatables'
+  add_group 'Helpers', 'app/helpers'
+  add_group 'Serializers', 'app/serializers'
+  add_group 'Services', 'app/services'
+  add_group 'Validators', 'app/validators'
+  add_group 'Jobs', 'app/jobs'
+  add_group 'Libraries', 'lib'
+end
+
+SimpleCov.coverage_dir 'coverage/rspec'
+
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-require 'rspec/autorun'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+end
+#Capybara.current_driver = :selenium
+#Capybara.javascript_driver = :poltergeist
+Capybara.javascript_driver = :selenium
+Capybara.ignore_hidden_elements = false
+Capybara.default_max_wait_time = 10
+Capybara.save_path = "spec/artifacts"
+
+Capybara.asset_host = "http://localhost:3000"
 
 RSpec.configure do |config|
 
   config.include Devise::Test::ControllerHelpers, :type => :controller
+  config.include Warden::Test::Helpers
+  config.include ApplicationHelper
+  config.include ActiveJob::TestHelper
+
+  Warden.test_mode!
 
   Devise.setup do |config|
     config.stretches = 1
@@ -43,6 +80,21 @@ RSpec.configure do |config|
   # inherited by the metadata hash of host groups and examples, rather than
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
+
+  config.order = "random"
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+  end
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+  config.after(:each) do
+    DatabaseCleaner.clean
+    Warden.test_reset!
+    ActiveJob::Base.queue_adapter.enqueued_jobs = []
+    ActiveJob::Base.queue_adapter.performed_jobs = []
+  end
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.

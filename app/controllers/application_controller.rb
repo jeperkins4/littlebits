@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  before_filter :cors_preflight_check
-  after_filter :cors_set_access_control_headers
+  before_action :cors_preflight_check
+  after_action :cors_set_access_control_headers
 
   protected
   def configure_permitted_parameters

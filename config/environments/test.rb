@@ -34,9 +34,12 @@ Rails.application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
 
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  ENV['PANDASTREAM_URL'] = 'https://cdb2a1633100e05fa7b2:f6004a2a615c9825ff59@api.pandastream.com/ta016150d20c9e3677417d5febadb031'
 end

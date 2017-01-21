@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-ruby '2.4.0'
+ruby '2.3.3'
 gem 'rails', '~> 5.0.1'
 # Use sqlite3 as the database for Active Record
 # Use Puma as the app server
@@ -70,6 +70,10 @@ gem 'mini_magick'
 gem 'panda', '~> 1.6.0'
 gem 'pg'
 gem 'select2-rails'
+gem 'sidekiq'
+gem 'sidekiq-status'
+gem 'sidekiq-failures'
+gem 'sinatra', github: 'sinatra/sinatra'
 gem 'simple_form'
 
 group :development do
@@ -89,6 +93,7 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'simplecov'
 end
 
 group :test do
@@ -96,6 +101,7 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'rspec-sidekiq'
   gem 'selenium-webdriver'
 end
 

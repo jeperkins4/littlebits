@@ -7,4 +7,23 @@ class Invention < ApplicationRecord
 
   serialize :bits, JSON
   serialize :materials, JSON
+
+  mount_uploader :video, VideoUploader
+
+  after_save :process_video
+
+  def panda_video
+    @panda_video || Panda::Video.find(panda_video_id)
+  end
+
+  def self.materials
+    where.not(materials: nil).pluck(:materials).flatten.compact.uniq.sort
+  end
+
+  private
+  def process_video
+    if self.video.present? && self.video_changed?
+      ConvertVideoJob.perform_later(self)
+    end
+  end
 end

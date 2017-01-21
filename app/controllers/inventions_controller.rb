@@ -1,5 +1,5 @@
 class InventionsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
   respond_to :html, :json
 
   expose(:inventions) {  Invention.all }
@@ -52,9 +52,9 @@ class InventionsController < ApplicationController
   end
 
   private
-    # Only allow a trusted parameter "white list" through.
-    def invention_params
-      params.require(:invention).permit(:title, :description, :user_name, :email, :video, bits: [], materials: [],
-                                       photos_attributes: [:id, :media, :name, :description, :_destroy])
-    end
+  # Only allow a trusted parameter "white list" through.
+  def invention_params
+    params.require(:invention).permit(:title, :description, :user_name, :email, :video, bits: [], materials: [],
+                                     photos_attributes: [:id, :media, :name, :description, :_destroy])
+  end
 end

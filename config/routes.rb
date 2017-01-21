@@ -1,3 +1,4 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   resources :inventions do
     resources :photos
@@ -9,5 +10,9 @@ Rails.application.routes.draw do
     member do
       get :preferences
     end
+  end
+
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
   end
 end

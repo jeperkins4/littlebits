@@ -29,7 +29,7 @@
 #new_session.modal.fade
   .modal-dialog
     .modal-content
-      = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal'}, role: 'form') do |f|
+      = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal', id: 'popup_new_user'}, role: 'form') do |f|
         .modal-header
           %button.close(data-dismiss='modal' aria-hidden='true')
             x

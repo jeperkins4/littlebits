@@ -9,6 +9,9 @@
     .row
       .col-md-3
         = poster(invention)
+      .col-md-3
+      .col-md-6
+        = video_tag([invention.panda_video.encodings['h264.1'].url], size: '320x240', controls: true) unless invention.panda_video_id.blank?
     %dl
       %dt Title:
       %dd= invention.title
