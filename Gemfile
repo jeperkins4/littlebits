@@ -92,7 +92,7 @@ group :development, :test do
   gem 'fabrication'
   gem 'faker'
   gem 'rspec-rails'
-  gem 'rubocop'
+  gem 'rubocop', require: false
   gem 'simplecov'
 end
 
