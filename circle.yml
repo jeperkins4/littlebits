@@ -1,0 +1,16 @@
+machine:
+  ruby:
+    version: 2.3.3
+  services:
+    - redis
+  environment:
+    PANDASTREAM_URL: https://cdb2a1633100e05fa7b2:f6004a2a615c9825ff59@api.pandastream.com/ta016150d20c9e3677417d5febadb031
+
+checkout:
+  post:
+    - mkdir -p tmp/
+    - mkdir -p tmp/cache
+    - mkdir -p $CIRCLE_TEST_REPORTS/rspec
+dependencies:
+  pre:
+    - gem install bundler
