@@ -2,7 +2,7 @@ class InventionsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   respond_to :html, :json
 
-  expose(:inventions) {  Invention.all }
+  expose(:inventions) {  Invention.order(:title) }
   expose(:invention, attributes: :invention_params)
 
   def index
@@ -15,40 +15,22 @@ class InventionsController < ApplicationController
   # POST /inventions
   # POST /inventions.json
   def create
-    respond_to do |format|
-      if invention.save
-        format.html { redirect_to invention, notice: 'Invention was successfully created.' }
-        format.json { render json: invention, status: ':created', location: invention }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: invention.errors, status: ':unprocessable_entity' }
-      end
-    end
+    invention.save
+    respond_with invention
   end
 
   # PUT /inventions/1
   # PUT /inventions/1.json
   def update
-    respond_to do |format|
-      if invention.update(invention_params)
-        format.html { redirect_to invention, notice: 'Invention was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: invention.errors, status: ':unprocessable_entity' }
-      end
-    end
+    invention.update(invention_params)
+    respond_with invention
   end
 
   # DELETE /inventions/1
   # DELETE /inventions/1.json
   def destroy
     invention.destroy
-
-    respond_to do |format|
-      format.html { redirect_to inventions_url }
-      format.json { head :no_content }
-    end
+    respond_with inventions, location: inventions_path
   end
 
   private

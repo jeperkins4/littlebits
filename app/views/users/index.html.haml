@@ -3,11 +3,12 @@
     .panel-title
       Users
       .pull-right
-        = link_to t('new', model_name: singular_table_name.titleize ).html_safe, new_user_path, :class => 'btn btn-primary'
+        = link_to t('new', model_name: 'Users').html_safe, new_user_path, :class => 'btn btn-primary'
 
   .panel-body
     %table#users.table.table-bordered.table-striped.dataTable{:data => {:source => users_url(:format => 'json')}}
       %thead
         %tr
-              %th
+          %th
+          %th
       %tbody

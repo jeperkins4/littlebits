@@ -4,16 +4,3 @@
     %ul.dropdown-menu
       - if can?(:manage, User)
         %li= link_to 'Users', users_path
-      - if can?(:manage, Service)
-        %li= link_to 'Services', services_path
-      - if can?(:manage, Business)
-        %li= link_to 'Businesses', businesses_path
-      - if can?(:manage, Client)
-        %li= link_to 'Clients', clients_path
-      - if can?(:manage, Event)
-        %li= link_to 'Events', events_path
-      - if can?(:manage, WeatherProvider)
-        %li= link_to 'Weather', weather_providers_path
-      - if can?(:manage, User)
-        %li.divider
-        %li=# link_to 'History', changes_path

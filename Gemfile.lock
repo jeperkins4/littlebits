@@ -522,6 +522,7 @@ DEPENDENCIES
   rails_apps_pages
   rails_apps_testing
   rails_layout
+  responders
   rspec-rails
   rspec-sidekiq
   rubocop
