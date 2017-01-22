@@ -6,10 +6,14 @@ module InventionsHelper
   end
 
   def bits(invention)
-    invention.bits.reject(&:blank?).join(", ") unless invention.bits.blank?
+    unless invention.bits.blank?
+      content_tag(:div, invention.bits.reject(&:blank?).join(", "))
+    end
   end
 
   def materials(invention)
-    invention.materials.reject(&:blank?).join(", ") unless invention.materials.blank?
+    unless invention.materials.blank?
+      invention.materials.reject(&:blank?).join(", ")
+    end
   end
 end

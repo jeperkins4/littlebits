@@ -4,6 +4,10 @@ describe ProcessVideo do
   let(:invention) { Fabricate(:invention) }
 
   context 'run' do
+    after(:each) do
+      RemoveVideo.new(invention).run
+    end
+
     it "should process a video" do
       invention.video = File.open(File.join('spec','artifacts','videoplayback.mp4'))
       invention.save

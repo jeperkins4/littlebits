@@ -17,7 +17,7 @@ class Invention < ApplicationRecord
   end
 
   def self.materials
-    where.not(materials: nil).pluck(:materials).flatten.compact.uniq.sort
+    where.not(materials: nil).pluck(:materials).flatten.compact.uniq.reject{|x|x.blank?}.sort
   end
 
   private
