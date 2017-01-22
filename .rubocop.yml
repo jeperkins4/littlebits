@@ -1,5 +1,5 @@
 AllCops:
-  RunRailsCops: true
+  #  RunRailsCops: true
   Include:
     - '**/Gemfile'
     - '**/Rakefile'

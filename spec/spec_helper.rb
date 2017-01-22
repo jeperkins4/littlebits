@@ -14,7 +14,6 @@ SimpleCov.start 'rails' do
   add_group 'Services', 'app/services'
   add_group 'Validators', 'app/validators'
   add_group 'Jobs', 'app/jobs'
-  add_group 'Libraries', 'lib'
 end
 
 SimpleCov.coverage_dir 'coverage/rspec'
