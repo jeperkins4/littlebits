@@ -6,7 +6,7 @@ class Ability
     if user.admin?
       can :manage, :all
     else
-      can :read, :all
+      can [:read, :new, :create], :all
       can :manage, user.inventions
     end
   end

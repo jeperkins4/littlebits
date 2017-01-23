@@ -2,7 +2,7 @@ feature 'New Invention' do
   scenario 'user edits an invention' do
     user = Fabricate(:user)
     user.confirm
-    invention = Fabricate(:invention, title: 'R2D2')
+    invention = Fabricate(:invention, title: 'R2D2', user: user)
     signin(user.email, user.password)
     visit edit_invention_path(invention)
     within "form#edit_invention_#{invention.id}" do
