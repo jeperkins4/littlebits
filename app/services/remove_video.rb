@@ -1,14 +1,15 @@
 class RemoveVideo
-  attr_accessor :invention
+  attr_accessor :video
 
-  def initialize(invention)
-    self.invention = invention
+  def initialize(video)
+    self.video = video
   end
 
   def run
-    video = Panda::Video::find(invention.panda_video_id)
-    video.delete
-    invention.panda_video_id = nil
-    invention.save
+    return if video.panda_video_id.blank?
+    pvideo = Panda::Video::find(video.panda_video_id)
+    pvideo.delete
+    video.panda_video_id = nil
+    video.save
   end
 end

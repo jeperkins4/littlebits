@@ -8,7 +8,6 @@
     = f.input :email
     = f.input :bits, collection: APP[:bitlist], input_html: { multiple: true, class: 'chosen-select' }
     = f.input :materials, collection: Invention.materials, input_html: { multiple: true, class: 'select2-with-add' }
-    = f.input :video, as: :file
 
   .table-responsive
     %table#invention_photos.table.table-condensed
@@ -24,6 +23,18 @@
       %br
       .pull-right
         = link_to_add_association t('add_photo').html_safe, f, :photos, :"data-association-insertion-node" => "tbody#invention_photos_data", :"data-association-insertion-method" => "append", class: 'btn btn-success'
+
+  .table-responsive
+    %table#invention_video.table.table-condensed
+      %thead
+        %tr
+          %th Video
+          %th Name
+          %th Description
+          %th
+      %tbody#invention_video_data
+        = f.simple_fields_for :video, wrapper: false do |doc|
+          = render 'photo_fields', :f => doc
 
   .form-actions
     = f.button :submit

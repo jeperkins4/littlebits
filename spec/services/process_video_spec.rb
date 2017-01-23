@@ -1,18 +1,21 @@
 require 'spec_helper'
 
 describe ProcessVideo do
-  let(:invention) { Fabricate(:invention) }
+  let(:video) { Fabricate(:video) }
 
   context 'run' do
     after(:each) do
-      RemoveVideo.new(invention).run
+      RemoveVideo.new(video).run
     end
 
     it "should process a video" do
-      invention.video = File.open(File.join('spec','artifacts','videoplayback.mp4'))
-      invention.save
-      ProcessVideo.new(invention).run
-      expect(invention.panda_video).to_not be_nil
+      if video.try(:media).try(:url).nil?
+        video.media = File.open(File.join('spec','artifacts','videoplayback.mp4'))
+        video.save
+      end
+      # explicitly call
+      ProcessVideo.new(video).run
+      expect(video.panda_video).to_not be_nil
     end
   end
 end

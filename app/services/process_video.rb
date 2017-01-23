@@ -1,16 +1,16 @@
 class ProcessVideo
-  attr_accessor :invention
+  attr_accessor :video
 
-  def initialize(invention)
-    self.invention = invention
+  def initialize(video)
+    self.video = video
   end
 
   def run
-    video = Panda::Video.create(source_url: invention.video.url)
-    until video.reload.status == 'success'
-      video.encodings['h264.1'].reload
+    pvideo = Panda::Video.create(source_url: self.video.media.url)
+    until pvideo.reload.status == 'success'
+      pvideo.encodings['h264.1'].reload
     end
-    invention.panda_video_id = video.id
-    invention.save
+    self.video.panda_video_id = pvideo.id
+    self.video.save
   end
 end

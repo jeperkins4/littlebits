@@ -12,6 +12,14 @@ class InventionsController < ApplicationController
     end
   end
 
+  def new
+    invention.build_video
+  end
+
+  def edit
+    invention.build_video if invention.video.nil?
+  end
+
   # POST /inventions
   # POST /inventions.json
   def create
@@ -37,6 +45,7 @@ class InventionsController < ApplicationController
   # Only allow a trusted parameter "white list" through.
   def invention_params
     params.require(:invention).permit(:title, :description, :user_name, :email, :video, bits: [], materials: [],
-                                     photos_attributes: [:id, :media, :name, :description, :_destroy])
+                                     photos_attributes: [:id, :media, :name, :description, :_destroy],
+                                     video_attributes: [:id, :media, :name, :description, :_destroy])
   end
 end
