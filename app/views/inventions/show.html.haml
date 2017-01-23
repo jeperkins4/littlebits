@@ -3,7 +3,8 @@
     .panel-title
       Invention
       .pull-right
-        = link_to raw(t('edit')), [:edit, invention], :class => 'btn btn-primary'
+        - if can? :manage, invention
+          = link_to raw(t('edit')), [:edit, invention], :class => 'btn btn-primary'
         = link_to raw(t('back',to: "Inventions")), inventions_path, :class => 'btn btn-default'
   .panel-body
     .row

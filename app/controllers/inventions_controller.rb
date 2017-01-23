@@ -44,7 +44,7 @@ class InventionsController < ApplicationController
   private
   # Only allow a trusted parameter "white list" through.
   def invention_params
-    params.require(:invention).permit(:title, :description, :user_name, :email, :video, bits: [], materials: [],
+    params.require(:invention).permit(:user_id, :title, :description, :user_name, :email, :video, bits: [], materials: [],
                                      photos_attributes: [:id, :media, :name, :description, :_destroy],
                                      video_attributes: [:id, :media, :name, :description, :_destroy])
   end
