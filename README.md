@@ -43,9 +43,5 @@ $ bundle exec sidekiq -q default
 
 Demo Version
 -----------
-You can explore a working version of this software at [litteBits Showcase](http://littlebits-showcase.herokuapp.com).
+You can explore a working version of this software on Heroku at [litteBits Showcase](http://littlebits-showcase.herokuapp.com).
 
-* System dependencies
-Telestream | Cloud
-Amazon AWS S3 with bucket named littlebits
-Redis
