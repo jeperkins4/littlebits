@@ -43,5 +43,5 @@ $ bundle exec sidekiq -q default
 
 Demo Version
 -----------
-You can explore a working version of this software on Heroku at [litteBits Showcase](http://littlebits-showcase.herokuapp.com).
+You can explore a working version of this software on Heroku at [litteBits Showcase](http://littlebits-showcase.herokuapp.com).  If you register so that you can create and edit inventions, please be aware that email during registration may get sent to junk folders due to the sender address being used.
 
