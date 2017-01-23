@@ -3,3 +3,7 @@ machine:
     version: 2.3.3
   services:
     - redis
+dependencies:
+  pre:
+    - gem install bundler
+    - gem install rainbow -v '2.2.1'
