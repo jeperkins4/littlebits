@@ -45,3 +45,10 @@ Demo Version
 -----------
 You can explore a working version of this software on Heroku at [litteBits Showcase](http://littlebits-showcase.herokuapp.com).  If you register so that you can create and edit inventions, please be aware that email during registration may get sent to junk folders due to the sender address being used.
 
+###TODO
+Obviously this is not a production application, but a number of backend and infrastructure issues would need to be addressed.
+1. Improve video upload - Most likely a direct to S3 type solution to bypass the blocking / timeouts of the current solution.
+2. Resolve CircleCI issue to allow continuous integration and enforce only passing tests moving code into production.
+3. Better messaging around long or asynchronous transactions.  There is a superficial attempt at ActionCable integration, but this would need to be enhanced.
+4. A more usable and branded UX.
+
