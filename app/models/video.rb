@@ -5,6 +5,8 @@ class Video < ApplicationRecord
 
   mount_uploader :media, VideoUploader
 
+  validates :media, file_size: { less_than: 10.megabytes } # This is a limit due to Telestream | Cloud free edition
+
   after_save :process_video
   before_destroy :clear_panda
 

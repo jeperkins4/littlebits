@@ -1,5 +1,6 @@
 class InventionsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  load_and_authorize_resource
   respond_to :html, :json
 
   expose(:inventions) {  Invention.order(:title) }

@@ -12,5 +12,8 @@ class ProcessVideo
     end
     self.video.panda_video_id = pvideo.id
     self.video.save
+    ActionCable.server.broadcast "invention_channel", invention_id: self.video.invention_id,
+      message: "Video #{video.name} has completed processing",
+      panda_video_id: self.video.panda_video_id
   end
 end
