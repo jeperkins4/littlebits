@@ -112,6 +112,10 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.3)
     docile (1.1.5)
+    dotenv (2.1.2)
+    dotenv-rails (2.1.2)
+      dotenv (= 2.1.2)
+      railties (>= 3.2, < 5.1)
     erubis (2.7.0)
     excon (0.54.0)
     execjs (2.7.0)
@@ -502,6 +506,7 @@ DEPENDENCIES
   database_cleaner
   decent_exposure
   devise
+  dotenv-rails
   fabrication
   faker
   file_validators

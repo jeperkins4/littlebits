@@ -53,4 +53,3 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 end
-ENV['PANDASTREAM_URL'] = 'https://cdb2a1633100e05fa7b2:f6004a2a615c9825ff59@api.pandastream.com/ta016150d20c9e3677417d5febadb031'
