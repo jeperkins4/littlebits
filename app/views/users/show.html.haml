@@ -6,5 +6,12 @@
         = link_to raw(t('edit')), [:edit, user], :class => 'btn btn-primary'
         = link_to raw(t('back',to: "Users")), users_path, :class => 'btn btn-default'
   .panel-body
-    %dl
-    
+    %dl.dl-horizontal
+      %dd= avatar_url(current_user.email)
+      %dt Name
+      %dd= user.name
+      %dt Email
+      %dd= user.email
+      %dt Time zone
+      %dd= user.time_zone
+

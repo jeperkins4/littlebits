@@ -10,6 +10,9 @@ private
     users.map do |user|
       [
         link_to(user.name, user),
+        user.email,
+        date(user.confirmed_at),
+        date(user.last_sign_in_at),
         links(user)
       ]
     end
