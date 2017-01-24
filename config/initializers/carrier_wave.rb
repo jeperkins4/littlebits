@@ -1,13 +1,13 @@
 CarrierWave.configure do |config|
+  access_key_id = ENV['S3_KEY']
+  secret_access_key = ENV['S3_PASSWORD']
+
   config.fog_credentials = {
-    :provider => 'AWS',
-    :aws_access_key_id => ENV['S3_KEY'],
-    :aws_secret_access_key => ENV['S3_PASSWORD']
+    provider: 'AWS',
+    aws_access_key_id: access_key_id,
+    aws_secret_access_key: secret_access_key
   }
-  #config.aws_bucket = 'placeify'
   config.fog_directory = ENV['S3_BUCKET']
-  #config.cache_dir = "#{Rails.root}/tmp/uploads"
-  #config.asset_host = "http://#{ENV['S3_CDN']}"
   config.fog_public = true
   config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}
   config.delete_tmp_file_after_storage = false
