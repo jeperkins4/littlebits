@@ -1,5 +1,5 @@
-[![Code Climate](https://codeclimate.com/github/rails/rails/badges/gpa.svg)](https://codeclimate.com/github/rails/rails)
 [![CircleCI](https://circleci.com/gh/jeperkins4/littlebits/tree/develop.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/jeperkins4/littlebits/tree/develop)
+[![Code Climate](https://codeclimate.com/repos/5882322acafcb50053000704/badges/4e3e85e07f4ae2943fe3/gpa.svg)](https://codeclimate.com/repos/5882322acafcb50053000704/feed)
 # litteBits - Showcase App by John Perkins
 
 This application was developed to demonstrate the coding style and practices of John Perkins.  This is to be used as a technical evaluation.
