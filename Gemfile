@@ -84,6 +84,7 @@ group :development do
   gem 'foreman'
   gem 'html2haml'
   gem 'hub', :require=>nil
+  gem 'prefab'
   gem 'rails_apps_pages'
   gem 'rails_apps_testing'
   gem 'rails_layout'
@@ -95,7 +96,6 @@ group :development, :test do
   gem 'fabrication'
   gem 'faker'
   gem 'rspec-rails'
-  gem 'rubocop', require: false
   gem 'simplecov'
 end
 
