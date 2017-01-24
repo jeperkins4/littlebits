@@ -51,9 +51,7 @@ Obviously this is not a production application, but a number of backend and infr
 
 1. Improve video upload - Most likely a direct to S3 type solution to bypass the blocking / timeouts of the current solution.
 
-2. Resolve CircleCI issue to allow continuous integration and enforce only passing tests moving code into production.
+2. Better messaging around long or asynchronous transactions.  There is a superficial attempt at ActionCable integration, but this would need to be enhanced.
 
-3. Better messaging around long or asynchronous transactions.  There is a superficial attempt at ActionCable integration, but this would need to be enhanced.
-
-4. A more usable and branded UX.
+3. A more usable and branded UX.
 
